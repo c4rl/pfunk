@@ -22,7 +22,7 @@ trait MethodsToClosures {
     if (method_exists($this, $name)) {
       $instance = $this;
       $closure = function (...$vars) use ($instance, $name) {
-        return $instance->{$name}($vars);
+        return $instance->$name(...$vars);
       };
       return $closure->bindTo($instance, $instance);
     }
